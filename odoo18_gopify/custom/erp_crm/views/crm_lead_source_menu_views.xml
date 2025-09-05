@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+  <!-- Menu -->
+  <!-- First -->
+  <menuitem
+    id="erp_crm_menu_root"
+    name="ERP CRM0.1"
+    sequence="1" />
+
+  <!-- Second -->
+  <menuitem
+    id="erp_crm_menu_lead"
+    name="Lead\Opportunity"
+    parent="erp_crm_menu_root" />
+
+  <menuitem
+    id="erp_crm_menu_reports"
+    name="Reports"
+    parent="erp_crm_menu_root" />
+
+
+  <!-- Third -->
+  <menuitem
+    id="erp_crm_menu_pipeline"
+    name="Pipeline"
+    parent="erp_crm_menu_root" />
+
+  <menuitem
+    id="erp_crm_menu_reports"
+    name="Reporting"
+    parent="erp_crm_menu_root" />
+
+  <menuitem
+    id="erp_crm_menu_lead_new"
+    name="New Lead"
+    action="crm_lead_source_action"
+    parent="erp_crm_menu_lead" />
+
+</odoo>

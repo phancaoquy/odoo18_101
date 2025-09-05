@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+  <!-- Action -->
+  <record id="estate_property_action" model="ir.actions.act_window">
+    <field name="name">Estate Properties</field>
+    <field name="res_model">estate.property</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <!-- Top menu item -->
+  <menuitem id="estate_menu_root"
+    name="Real Estate"
+    sequence="10" />
+
+  <menuitem id="estate_property_menu"
+    name="Advertisements"
+    parent="estate_menu_root" />
+
+  <menuitem id="estate_property_sales"
+    name="Sales"
+    action="estate_property_action"
+    parent="estate_property_menu" />
+
+  <menuitem id="estate_property_properties"
+    name="Properties"
+    parent="estate_property_menu" />
+
+  <!-- List view -->
+  <record id="estate_property_list_view" model="ir.ui.view">
+    <field name="name">estate.property.list</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+      <list string='Leads' sample="1" multi_edit='1'>
+        <field name="company_id" />
+        <field name="description" />
+        <field name="expected_price" />
+        <field name="selling_price" />
+        <field name="bedrooms" />
+        <field name="living_area" />
+        <field name="facades" />
+        <field name="garage" />
+        <field name="garden" />
+        <field name="garden_area" />
+      </list>
+    </field>
+  </record>
+
+  <record
+    id="estate_property_form_view"
+    model="ir.ui.view">
+    <field name="name">estate.property.form</field>
+    <field name="model">estate.property</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button action="estate_property_cancel_action" string="Cancel"></button>
+        </header>
+
+        <sheet>
+          <group>
+            <div>
+              <group>
+                <field name="name" />
+                <field name="description" />
+              </group>
+            </div>
+            <group></group>
+          </group>
+          <hr />
+          <group>
+            <group>
+              <field name="postcode" />
+              <field name="expected_price" />
+              <field name="bedrooms" />
+              <field name="facades" />
+              <field name="garden" />
+              <field name="garden_orientation" />
+              <field name="active" />
+            </group>
+
+            <group>
+              <field name="date_available" />
+              <field name="selling_price" readonly="1" />
+              <field name="living_area" />
+              <field name="garage" />
+              <field name="garden_area" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+</odoo>  
